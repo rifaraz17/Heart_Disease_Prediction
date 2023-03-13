@@ -1,0 +1,68 @@
+<!-- base file to extend-->
+{% extends 'base.html' %}
+
+{% block nav %}
+<div class="collapse navbar-collapse" id="navbarResponsive">
+	<ul class="navbar-nav ml-auto">
+		<li class="nav-item">
+			<a class="nav-link text-white" href="{{ url_for('adminhome') }}">Home</a>
+		</li>
+		<li class="nav-item">
+			<a class=" nav-link text-white" href="{{ url_for('adminlogout') }}">Log Out</a>
+		</li>
+	</ul>
+</div>
+
+{% endblock nav%}
+
+{% block body %}
+<div class="banner-top">
+</br>
+</br>
+{% if result %} 
+</br>     
+<div class="row h-100 justify-content-center">
+</br></br>
+<h3 class="text-shadow">Doctors Added</h3>
+</div>
+</br>
+<div class="row h-100 justify-content-center">
+</br>
+<table class="table-striped" cellspacing=10 cellpadding=4  align="center" style="float:center;">
+<tr><th><b>Name</b></th><th>&nbsp;&nbsp;</th><th>Email address</th><th>&nbsp;&nbsp;</th><th></th></tr>
+{% for query in result %}
+    <tr>
+    <td>{{query.username}}</td>
+	<td></td>
+    <td>{{ query.email }}</td>
+	<td></td>
+	<td><a class="nav-link text-primary" href="/deletedoctor/{{query.id}}"><b>Delete</b></a></td>
+    </tr>
+{% endfor %}
+</table>
+</div>
+</br></br></br></br></br></br></br></br>
+{% else %}
+</br>
+</br>
+<div class="row h-100 justify-content-center">
+<h3 class="text-shadow">There are no doctor registered yet...!</h3>
+</div>
+</br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+{% endif %}
+</div>
+{% endblock %}
+{%block footer %}
+<footer class="footer" style="background-color: rgb(0, 0, 0);">
+	<div class="container" >
+		<h2 class="logo2 text-center">
+				<a href="{{ url_for('adminhome') }}">
+					HEART DISEASE PREDICTION
+				</a>
+			</h2>
+        <span class="text-left"style="color:white;">© 2023 Copyright: Heart Disease Prediction</span>
+    </div>
+	</br>
+</footer>
+
+{%endblock footer%}

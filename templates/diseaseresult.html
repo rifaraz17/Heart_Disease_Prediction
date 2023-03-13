@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block nav %}
+<div class="collapse navbar-collapse" id="navbarResponsive">
+	<ul class="navbar-nav ml-auto">
+		<li class="nav-item active">
+			<a class="btn btn-outline-dark text-white" href="{{ url_for('doctorhome') }}">Home</a>
+			<span class="sr-only">(current)</span>
+		</li>
+		
+		<li class="dropdown nav-item ">
+			<a class="dropdown-toggle nav-link text-white" data-toggle="dropdown" href="#">Account</a>
+                            <ul class="dropdown-menu" style="background-color: #C0C0C0;">
+								<li><a class=" nav-link text-white" href="{{ url_for('changepassword') }}">Change password</a></li>
+								<li><a class=" nav-link text-white" href="{{ url_for('doctorlogout') }}">Log Out</a></li>
+							</ul>
+		</li>
+		</ul>
+		</div>
+{% endblock nav%}
+
+{% block body %}
+	</br>
+<div class="banner-top">
+	<div class="row h-100 justify-content-center banner-top3" >
+	</br>
+	<div class="container py-2 mx-auto my-50 h-10 " style="margin: 12rem;">
+  <div class="row">
+      <div class="col-sm py-2 py-md-3">
+          <div class="text-center " style="justify-content: center;">
+               <h1 class="text-link"><b>"<i>{{ recommendation }}</i>"</b></h1>
+          </div>
+      </div>
+  </div>
+</div>
+	</br>
+	</div>	
+		  
+</div>		  
+{% endblock %}
+{%block footer %}
+<footer class="footer" style="background-color: rgb(0, 0, 0);">
+</br>
+	<div class="container" >
+		<h2 class="logo2 text-center">
+				<a href="{{ url_for('doctorhome') }}">
+					HEART DISEASE PREDICTION
+				</a>
+			</h2>
+        <span class="text-left">© 2023 Copyright: Heart Disease Prediction</span>
+    </div>
+	</br>
+</footer>
+
+{%endblock footer%}
